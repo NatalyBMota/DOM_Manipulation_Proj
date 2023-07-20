@@ -59,6 +59,7 @@ ul.addEventListener('click', (e) => {
       const span = li.firstElementChild;
       const input = document.createElement('input');
       input.type = 'text';
+      input.value = span.textContent;
       li.insertBefore(input, span);
       /* What does the line of code above do?
          "We can use the span to place the new input element into the DOM using insertBefore()." 
