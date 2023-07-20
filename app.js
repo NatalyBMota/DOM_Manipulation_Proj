@@ -67,6 +67,19 @@ ul.addEventListener('click', (e) => {
          then span."
       */
       li.removeChild(span);
+      button.textContent = 'save';
+    } else if (button.textContent === 'save') {
+      const input = li.firstElementChild;
+      const span = document.createElement('span');
+      span.textContent = input.value;
+      li.insertBefore(span, input);
+      /* What does the line of code above do?
+         "We can use the span to place the new input element into the DOM using insertBefore()." 
+         "We want to place the new input element first, before the span, so we will pass input first,
+         then span."
+      */
+      li.removeChild(input);
+      button.textContent = 'edit';
     }
   }
 });
