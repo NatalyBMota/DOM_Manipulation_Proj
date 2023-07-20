@@ -4,7 +4,9 @@ const ul = document.getElementById('invitedList');
 
 function createLI(text) {
   const li = document.createElement('li');
-  li.textContent = text;
+  const span = document.createElement('span');
+  span.textContent = text;
+  li.appendChild(span);
   const label = document.createElement('label');
   label.textContent = 'Confirmed';
   const checkbox = document.createElement('input');
@@ -54,9 +56,16 @@ ul.addEventListener('click', (e) => {
       
       ul.removeChild(li);
     } else if (button.textContent === 'edit') {
-      console.log("edit");
-      /*
-      ul.removeChild(li);*/
+      const span = li.firstElementChild;
+      const input = document.createElement('input');
+      input.type = 'text';
+      li.insertBefore(input, span);
+      /* What does the line of code above do?
+         "We can use the span to place the new input element into the DOM using insertBefore()." 
+         "We want to place the new input element first, before the span, so we will pass input first,
+         then span."
+      */
+      li.removeChild(span);
     }
   }
 });
