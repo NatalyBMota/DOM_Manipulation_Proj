@@ -2,12 +2,7 @@ const form = document.getElementById('registrar');
 const input = form.querySelector('input');
 const ul = document.getElementById('invitedList');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault(); 
-  /* The above line of code will cancel the browser'd default submit behavior involving reloading the page and sending data to a server. */
-  
-  const text = input.value;
-  input.value = '';
+function createLI(text) {
   const li = document.createElement('li');
   li.textContent = text;
   const label = document.createElement('label');
@@ -16,11 +11,19 @@ form.addEventListener('submit', (e) => {
   checkbox.type = 'checkbox';
   label.appendChild(checkbox);
   li.appendChild(label);
-  
   const button = document.createElement('button');
   button.textContent = 'remove';
   li.appendChild(button);
+  return li;
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); 
+  /* The above line of code will cancel the browser'd default submit behavior involving reloading the page and sending data to a server. */
   
+  const text = input.value;
+  input.value = '';
+  li = createLI(text);  
   ul.appendChild(li);
 });
 
