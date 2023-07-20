@@ -47,8 +47,15 @@ ul.addEventListener('change', (e) => {
 
 ul.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
-    const li = e.target.parentNode;
-    const ul = li.parentNode;
-    ul.removeChild(li);
+    if (e.target.textContent === 'remove') {
+      const li = e.target.parentNode;
+      const ul = li.parentNode;
+      ul.removeChild(li);
+    } else if (e.target.textContent === 'edit') {
+      console.log("edit");
+      /*const li = e.target.parentNode;
+      const ul = li.parentNode;
+      ul.removeChild(li);*/
+    }
   }
 });
