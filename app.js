@@ -47,14 +47,15 @@ ul.addEventListener('change', (e) => {
 
 ul.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
-    if (e.target.textContent === 'remove') {
-      const li = e.target.parentNode;
-      const ul = li.parentNode;
+    const button = e.target;
+    const li = button.parentNode;
+    const ul = li.parentNode;
+    if (button.textContent === 'remove') {
+      
       ul.removeChild(li);
-    } else if (e.target.textContent === 'edit') {
+    } else if (button.textContent === 'edit') {
       console.log("edit");
-      /*const li = e.target.parentNode;
-      const ul = li.parentNode;
+      /*
       ul.removeChild(li);*/
     }
   }
