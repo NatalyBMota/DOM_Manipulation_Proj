@@ -11,9 +11,14 @@ function createLI(text) {
   checkbox.type = 'checkbox';
   label.appendChild(checkbox);
   li.appendChild(label);
-  const button = document.createElement('button');
-  button.textContent = 'remove';
-  li.appendChild(button);
+  
+  const editButton = document.createElement('button');
+  editButton.textContent = 'edit';
+  li.appendChild(editButton);
+  
+  const removeButton = document.createElement('button');
+  removeButton.textContent = 'remove';
+  li.appendChild(removeButton);
   return li;
 }
 
